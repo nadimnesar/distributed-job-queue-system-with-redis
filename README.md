@@ -32,6 +32,7 @@ dependencies and failures gracefully.
 * **Queue & State Management:** Redis
 * **Load Balancer:** Nginx
 * **Database:** Postgres
+* **Database Migration:** Liquibase
 
 ## System Design
 
