@@ -36,4 +36,10 @@ dependencies and failures gracefully.
 
 ## System Design
 
-<img src="https://i.ibb.co.com/V5SzWdw/distributed-job-queue-system-with-redis-2.jpg" alt="diagram">
+<img src="https://i.ibb.co.com/NdDhKzTh/distributed-job-queue-system-with-redis-3.jpg" alt="diagram">
+
+## Known Issues
+
+* Current system design doesn't support horizontal scaling based on queue length, but manually scaling is possible using
+  Nginx.
+* Current implementation doesn't support dependency management

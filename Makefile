@@ -11,7 +11,7 @@ docker-up:
 	 docker-compose up -d
 
 docker-down:
-	docker-compose down
+	docker-compose down --remove-orphans
 
 # To add new instances while not stopping existing ones
 # Add new producer/worker in docker-compose.yml file and run scale (edit numbers)

@@ -1,6 +1,6 @@
-package com.nadimnesar.jobqueue.constants;
+package com.nadimnesar.jobqueue.constant;
 
-public class RedisConstants {
+public class RedisConstant {
     public static final String JOB_QUEUE_PREFIX = "job:queue:";
     public static final String JOB_HASH_PREFIX = "job:";
     public static final String JOB_RESULT_PREFIX = "job:result:";
