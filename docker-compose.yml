@@ -1,0 +1,104 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-lb
+    ports:
+      - "8090:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: always
+    depends_on:
+      - producer_1
+      - producer_2
+      - producer_3
+      - worker_1
+      - worker_2
+      - worker_3
+      - worker_4
+      - worker_5
+    networks:
+      - app-network
+
+  producer_1:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    container_name: producer_1
+    environment:
+      - SERVER_PORT=8080
+    networks:
+      - app-network
+
+  producer_2:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    container_name: producer_2
+    environment:
+      - SERVER_PORT=8080
+    networks:
+      - app-network
+
+  producer_3:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    container_name: producer_3
+    environment:
+      - SERVER_PORT=8080
+    networks:
+      - app-network
+
+  worker_1:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_1
+    environment:
+      - SERVER_PORT=8085
+    networks:
+      - app-network
+
+  worker_2:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_2
+    environment:
+      - SERVER_PORT=8085
+    networks:
+      - app-network
+
+  worker_3:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_3
+    environment:
+      - SERVER_PORT=8085
+    networks:
+      - app-network
+
+  worker_4:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_4
+    environment:
+      - SERVER_PORT=8085
+    networks:
+      - app-network
+
+  worker_5:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    container_name: worker_5
+    environment:
+      - SERVER_PORT=8085
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
